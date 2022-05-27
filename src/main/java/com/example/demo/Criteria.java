@@ -45,11 +45,9 @@ public class Criteria {
 
     @Override
     public String toString() {
+        int fff=1111;
+        int g=fff+1;
+
         return "Criteria [page=" + page + ", perPageNum=" + perPageNum + "]";
     }
 }
-
-
-
-
-ffff
