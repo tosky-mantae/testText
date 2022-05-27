@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.model.dao.TestMapper">
+
+    <select id="getAllDataList" parameterType="map" resultType="com.example.demo.dto.Board">
+        SELECT * FROM CRUD ORDER by CRUD_idx desc LIMIT #{pv} offset #{page};
+    </select>
+
+    <insert id="setAllDataList" parameterType="map">
+        insert into CRUD (title, content, writer)
+            VALUE (#{title},#{content},#{writer})
+    </insert>
+
+    <select id="getData" parameterType="int" resultType="com.example.demo.dto.Board">
+        SELECT *
+        FROM CRUD where CRUD_idx = #{CRUD_idx}
+    </select>
+
+    <update id="updateData" parameterType="map">
+        UPDATE CRUD
+        set title = #{title}, content = #{content}, writer = #{writer}
+        where CRUD_idx=#{CRUD_idx};
+    </update>
+
+    <delete id="delData" parameterType="map">
+        delete from CRUD
+               where CRUD_idx=#{CRUD_idx};
+    </delete>
+
+    <select id="pageSlid" resultType="int">
+        select count(*) from CRUD;
+
+    </select>
+
+
+
+<!--    <select id="paging" parameterType="int" resultType="List">-->
+<!--        select-->
+<!--    </select>-->
+
+
+
+</mapper>
+
+
+

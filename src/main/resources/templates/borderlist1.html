@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>게시판목록</h1>
+        <form action="/homepage" method="post">
+            <button type="submit" > 게시글 등록 </button>
+        </form>
+
+        <!--
+        <div th:each="article, i : ${articles}">
+                <span th:text="${article.title}"></span> =
+            </div>
+        </div>
+        -->
+            <table>
+                <thead>
+                    <th>글번호</th>
+                    <th>작성자</th>
+                    <th>제목</th>
+                    <th>작성시간</th>
+                </thead>
+
+                <tbody>
+                    <tr th:each="article : ${articles}">
+                        <td th:text="${article.CRUD_idx}"></td>
+                        <td th:text="${article.writer}"></td>
+                        <td >
+                            <a href="/board-open?CRUD_idx="
+                               th:attrappend="href=${article.CRUD_idx}"
+                               th:text="${article.title}"></a>
+                        </td>
+                        <td th:text="${article.date}"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        <th:block th:each="pageCount:${pageCount}">
+            <div style="float: left;margin-right: 10px;">
+                <a href="/list?page="
+                   th:attrappend="href=${pageCount}"
+                   th:text="${pageCount+1}"></a>
+            </div>
+        </th:block>
+
+
+
+
+
+    </body>
+</html>

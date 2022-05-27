@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>수정창</h1>
+        <form  action="/updateindex" method="post">
+            <input type="hidden" th:value="${article.CRUD_idx}" name="idx"><br><br><br>
+            제목 : <input type="text" th:value="${article.title}" name="title"> <br>
+            작성자 : <input type="text" th:value="${article.writer}" name="writer"> <br>
+            <textarea th:text="${article.content}" name="content"></textarea><br>
+
+            <input type="submit" value="수정">
+        </form>
+
+        <form action="/delData" method="post">
+            <input type="hidden" th:value="${article.CRUD_idx}" name="idx"><br>
+            <input type="submit" value="삭제">
+        </form>
+
+    </body>
+</html>
