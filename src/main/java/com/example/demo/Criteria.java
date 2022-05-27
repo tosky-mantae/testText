@@ -48,6 +48,7 @@ public class Criteria {
         int fff=1111;
         int g=fff+1;
 
+        String test="123";
         return "Criteria [page=" + page + ", perPageNum=" + perPageNum + "]";
     }
 }
